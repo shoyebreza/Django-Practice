@@ -1,0 +1,26 @@
+1. python -m venv env_name
+2. cd env_name/Scripts/
+3. Activate
+4. pip install Django
+5. python.exe -m pip install --upgrade pip
+6. pip list
+7. django-admin startproject taskmanagement .
+8. Cd env directory
+9. python manage.py runserver
+
+Project directory 
+---------------------------------
+
+
+│   asgi.py	# used for server management.
+│   settings.py	# Project setting
+│   urls.py		# Project urls page.
+│   wsgi.py
+│   __init__.py	# package.
+│
+└───__pycache__
+        settings.cpython-312.pyc
+        urls.cpython-312.pyc
+        wsgi.cpython-312.pyc
+        __init__.cpython-312.pyc
+
