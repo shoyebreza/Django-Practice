@@ -40,6 +40,14 @@ change directory to env folder
 ```bash
 python manage.py runserver
 ```
+### requirements output
+```bash
+pip freeze >requirements.txt
+```
+### install requirements/in env folder
+```bash
+pip install -r requirements.txt
+```
 
 
 
