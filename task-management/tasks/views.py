@@ -6,18 +6,10 @@ from django.http import HttpResponse
 # transform data
 # data pass
 # Http response
-def home(request):
-    return HttpResponse("wellcome to task management system")
 
-def contact(request):
-    return HttpResponse("Contact with Us")
+def manager_dashboard(request):
+    return render(request, "dashboard.html")
 
+def user_dashboard(request):
+    return render(request, "user-dashboard.html")
 
-def show_task(request):
-    return HttpResponse("This is the tasks page")
-
-
-def specific_task(request, id):
-    print("id", id)
-    print("id type", type(id))
-    return HttpResponse(f" this is the specific task{id}")
