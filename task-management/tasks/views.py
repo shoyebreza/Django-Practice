@@ -8,8 +8,13 @@ from django.http import HttpResponse
 # Http response
 
 def manager_dashboard(request):
-    return render(request, "dashboard.html")
+    return render(request, "dashboard/manager-dashboard.html")
 
 def user_dashboard(request):
-    return render(request, "user-dashboard.html")
+    return render(request, "dashboard/user-dashboard.html")
 
+def test(request):
+    context = {
+        name:["mahmud","rabbi","ratin"]
+    }
+    return render(request, "test.html", context)
