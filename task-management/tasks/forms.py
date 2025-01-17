@@ -1,5 +1,5 @@
 from django import forms
-from tasks.models import Task, TaskDetail
+from tasks.models import Tasks, TaskDetail
 
 # Django Form
 
@@ -64,7 +64,7 @@ class StyledFormMixin:
 
 class TaskModelForm(StyledFormMixin, forms.ModelForm):
     class Meta:
-        model = Task
+        model = Tasks
         fields = ['title', 'description', 'due_date', 'assigned_to']
         widgets = {
             'due_date': forms.SelectDateWidget,
