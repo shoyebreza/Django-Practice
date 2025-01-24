@@ -1,5 +1,5 @@
 from django import forms
-from tasks.models import Tasks, TaskDetail
+from tasks.models import Task, TaskDetail
 
 # Django Form
 
@@ -43,17 +43,17 @@ class StyledFormMixin:
                     'rows': 5
                 })
             elif isinstance(field.widget, forms.SelectDateWidget):
-                print("Inside Date")
+                # print("Inside Date")
                 field.widget.attrs.update({
                     "class": "border-2 border-gray-300 p-3 rounded-lg shadow-sm focus:outline-none focus:border-rose-500 focus:ring-rose-500"
                 })
             elif isinstance(field.widget, forms.CheckboxSelectMultiple):
-                print("Inside checkbox")
+                # print("Inside checkbox")
                 field.widget.attrs.update({
                     'class': "space-y-2"
                 })
             else:
-                print("Inside else")
+                # print("Inside else")
                 field.widget.attrs.update({
                     'class': self.default_classes
                 })
@@ -64,7 +64,7 @@ class StyledFormMixin:
 
 class TaskModelForm(StyledFormMixin, forms.ModelForm):
     class Meta:
-        model = Tasks
+        model = Task
         fields = ['title', 'description', 'due_date', 'assigned_to']
         widgets = {
             'due_date': forms.SelectDateWidget,
@@ -75,4 +75,4 @@ class TaskModelForm(StyledFormMixin, forms.ModelForm):
 class TaskDetailModelForm(StyledFormMixin, forms.ModelForm):
     class Meta:
         model = TaskDetail
-        fields = ['priority', 'notes']
+        fields = ['priority', 'notes', 'asset']
