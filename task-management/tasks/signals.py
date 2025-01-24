@@ -1,16 +1,16 @@
 from django.db.models.signals import post_save, pre_save, m2m_changed, post_delete
 from django.dispatch import receiver
 from django.core.mail import send_mail
-from tasks.models import Tasks
+from tasks.models import Task
 
 
-@receiver(m2m_changed, sender=Tasks.assigned_to.through)
+@receiver(m2m_changed, sender=Task.assigned_to.through)
 def notify_employees_on_task_creation(sender, instance, action, **kwargs):
     if action == 'post_add':
-        print(instance, instance.assigned_to.all())
+        # print(instance, instance.assigned_to.all())
 
         assigned_emails = [emp.email for emp in instance.assigned_to.all()]
-        print("Checking....", assigned_emails)
+        # print("Checking....", assigned_emails)
 
         send_mail(
             "New Task Assigned",
@@ -21,10 +21,10 @@ def notify_employees_on_task_creation(sender, instance, action, **kwargs):
         )
 
 
-@receiver(post_delete, sender=Tasks)
+@receiver(post_delete, sender=Task)
 def delete_associate_details(sender, instance, **kwargs):
     if instance.details:
-        print(isinstance)
+        # print(isinstance)
         instance.details.delete()
 
-        print("Deleted successfully")
+        # print("Deleted successfully")
